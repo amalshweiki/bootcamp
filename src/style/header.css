@@ -1,0 +1,21 @@
+.logo {
+  width: 300px;
+  height: 80px;
+}
+.navbar {
+  background-color: #6dadbf;
+  border-radius: 30px;
+  display: inline-block;
+  font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
+    "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.custom-dropdown .nav-link {
+  color: white;
+}
+.share {
+  margin-left: 400px;
+}
