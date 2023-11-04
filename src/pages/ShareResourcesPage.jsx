@@ -4,7 +4,6 @@ import "../style/share.css";
 import pic1 from "../images/sharing.jpg";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import AddSharedRes from "../components/AddSharedRes";
 import FetchAndDisplay from "../components/FetchAndDisplay";
 const ShareResourcesPage = () => {
   const [categoryRes, setCategoryRes] = useState("");
@@ -82,7 +81,7 @@ const ShareResourcesPage = () => {
   ];
   const optionCType = [
     {
-      label: "Vedio Youtube Resources",
+      label: "Video Youtube Resources",
       value: "youtube",
     },
     {
@@ -121,7 +120,7 @@ const ShareResourcesPage = () => {
                 <h1>Add New Resources</h1>
                 <div>
                   <label htmlFor="selectOptionCategory">
-                    Choese the Categoris
+                    Choose the Categories
                   </label>{" "}
                   <br />
                   <select

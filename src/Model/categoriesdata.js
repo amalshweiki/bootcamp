@@ -1,28 +1,37 @@
-const categoriesData = [
+import htmlLogo from "../images/htmllogo.jpg";
+import cssLogo from "../images/csslogo.jpeg";
+import jsLogo from "../images/jslogo.jpg";
+import reactLogo from "../images/reactlogo.jpeg";
+
+const CATEGORIESDATA = [
   {
-    logo: require("../images/htmllogo.jpg").default, // Ensure .default for images
+    logo: htmlLogo,
     title: "HTML Resources",
     description: "Create the structure",
     buttonText: "See More",
+    linkPage: "htmlpage",
   },
   {
-    logo: require("../images/csslogo.jpeg").default, // Ensure .default for images
+    logo: cssLogo,
     title: "CSS Resources",
     description: "Stylize the website",
     buttonText: "See More",
+    linkPage: "csspage",
   },
   {
-    logo: require("../images/jslogo.jpg").default, // Ensure .default for images
+    logo: jsLogo,
     title: "JavaScript Resources",
     description: "Increase interactivity",
     buttonText: "See More",
+    linkPage: "jspage",
   },
   {
-    logo: require("../images/reactlogo.jpeg").default, // Ensure .default for images
+    logo: reactLogo,
     title: "React Resources",
     description: "Reuse components",
     buttonText: "See More",
+    linkPage: "reactpage",
   },
 ];
 
-export default categoriesData;
+export default CATEGORIESDATA;

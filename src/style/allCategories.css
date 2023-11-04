@@ -4,6 +4,11 @@ body {
   background: #f8f4f2;
   font-family: Arial;
 }
+.categories-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
 .allContainer {
   text-align: center;
 }

@@ -1,42 +1,18 @@
-import React from "react";
-
 import imageBox4 from "../images/react.jpg";
 import imagebox1 from "../images/react2.jpg";
 import { ArticlsLinks } from "../Model/reactResources";
-
 import { ArticlsExcersies } from "../Model/reactResources";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import ArticalsAndExercises from "./ArticalsAndExercises";
 import "../style/htmlpage.css";
-import BoxLinks from "./BoxLinks";
 const ReactArticls = () => {
-  const [articlslinks, SetArticlslinks] = useState(ArticlsLinks);
-  const [openVideoIndex, setOpenVideoIndex] = useState(null);
-  const [articlsLlinksEXC, SetArticlsLlinksEXC] = useState(ArticlsExcersies);
-  const openVideo = (index) => {
-    setOpenVideoIndex(index);
-  };
-
-  const closeVideo = () => {
-    setOpenVideoIndex(null);
-  };
   return (
-    <div className="grid-container">
-      <div className="box1 fade-in-left">
-        <img src={imagebox1} />
-      </div>
-      <div className="box2 fade-in-right">
-        <h3 className="title-resorces artical-padding">Articls Links</h3>
-        <BoxLinks links={articlslinks} />
-      </div>
-      <div className="box3 fade-in-left">
-        <h3 className="title-resorces"> Websites that offer exercises </h3>
-        <BoxLinks links={articlsLlinksEXC} />
-      </div>
-      <div className="box4 fade-in-right">
-        <img src={imageBox4} />
-      </div>
-    </div>
+    <ArticalsAndExercises
+      image1={imagebox1}
+      image2={imageBox4}
+      links={ArticlsLinks}
+      exercises={ArticlsExcersies}
+    />
   );
 };
 

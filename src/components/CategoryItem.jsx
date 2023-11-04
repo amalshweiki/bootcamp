@@ -1,7 +1,8 @@
 import React from "react";
 import "../style/allCategories.css";
+import { Link } from "react-router-dom";
 
-const CategoryItem = ({ logo, title, description, buttonText }) => {
+const CategoryItem = ({ logo, title, description, buttonText, linkPage }) => {
   return (
     <div className="a-box">
       <div className="img-container">
@@ -15,9 +16,9 @@ const CategoryItem = ({ logo, title, description, buttonText }) => {
         <h3>{title}</h3>
         <div>
           {description}
-          <button className="btn btn-info float-center me-2">
-            {buttonText}
-          </button>
+          <Link to={linkPage}>
+            <button className="button btn-seeMore">{buttonText}</button>
+          </Link>
         </div>
       </div>
     </div>
