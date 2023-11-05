@@ -1,11 +1,10 @@
 import React from "react";
 import "../style/login.css";
-
+import useLoginForm from "../hooks/useLoginForm";
 import pic1 from "../images/login.jpg";
 const Login = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  const { formData, errors, handleChange, handleSubmit } = useLoginForm();
+
   return (
     <div className="login-container">
       <div>
@@ -30,25 +29,61 @@ const Login = () => {
         <div className="form-login">
           <h2>Log in</h2>
           <form onSubmit={handleSubmit}>
-            <div class="form-group">
-              <label for="username">User Name</label>
+            <div className="form-group">
+              <label htmlFor="username">User Name</label>
               <input
                 type="text"
                 id="username"
-                class="input-form-style input-from-style"
+                name="name"
+                placeholder="User Name"
+                value={formData.name}
+                className="input-form-style input-from-style"
+                onChange={handleChange}
+              ></input>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                className="input-form-style input-from-style"
+                onChange={handleChange}
+              ></input>
+            </div>
+
+            {/* <div class="form-group">
+              <label htmlFor="username">User Name</label>
+              <input
+                type="text"
+                id="username"
+                name="User Name"
+                // inputName="name"
+                value={formData.name}
+                onError={errors.name}
+                className="input-form-style input-from-style"
+                onChange={handleChange}
               ></input>
             </div>
 
             <div class="form-group">
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
               <input
                 type="password"
                 id="password"
-                class="input-form-style input-from-style"
+                name="Password"
+                // inputName="password"
+                value={formData.password}
+                onError={errors.password}
+                className="input-form-style input-from-style"
+                onChange={handleChange}
               ></input>
-            </div>
+            </div> */}
             <p>for admin permissions please contact me via email.</p>
-            <button class="button btn-lgin" type="submit">
+            <button className="button btn-lgin" type="submit">
               Log In
             </button>
           </form>

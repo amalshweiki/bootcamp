@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { useGlobalAuthContext } from "../hooks/useGlobalAuthContext";
 import logo from "../images/logo.png";
 import "../style/header.css";
+
 const Header = () => {
+  const { user, logout } = useGlobalAuthContext();
   return (
     <nav className=" navbar navbar-expand-lg  m-3 ">
       <div className="container-fluid">
@@ -68,7 +71,22 @@ const Header = () => {
             </li>
           </ul>
 
-          <div></div>
+          <div>
+            <div className="log-in-and-out">
+              {user ? (
+                <>
+                  <p className="user-name">{`hello ${user.name}`}</p>
+                  <Link to="/" className="btn login-btn" onClick={logout}>
+                    Log Out
+                  </Link>
+                </>
+              ) : (
+                <Link to="/logIn" className="btn login-btn">
+                  Log In
+                </Link>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </nav>

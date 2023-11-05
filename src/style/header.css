@@ -12,10 +12,21 @@
   font-weight: 600;
   color: #fff;
 }
+.navbar-nav a.nav-item :link:visited {
+  color: #223e45;
+}
 
 .custom-dropdown .nav-link {
   color: white;
 }
 .share {
-  margin-left: 400px;
+  margin-left: 200px;
+}
+.log-in-and-out {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.log-in-and-out p {
+  margin-top: 15px;
 }

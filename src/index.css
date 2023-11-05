@@ -66,14 +66,40 @@
     left: 5px;
   }
 }
-.close-button {
+/* .close-button {
   background-color: rgb(128, 126, 126);
   margin-top: 2%;
   margin-left: -14%;
-}
+  z-index: 10000;
+  margin-right: -100%;
+} */
 .btn-share {
   margin-top: 4%;
   background-color: white;
   color: #6dadbf;
   margin-left: 60%;
+}
+/* .close-button {
+  background-color: rgb(193, 17, 170);
+  z-index: 1000000;
+  margin-top: -400px;
+  margin-right: -100%;
+} */
+.close-button {
+  background-color: transparent;
+  z-index: 1000000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  border: none;
+  margin-top: 15%;
+  margin-left: 68%;
+  width: 5px;
+  height: 5px;
+
+  color: #f7f9f9;
+  cursor: pointer;
+  /* padding: 10px; */
+  font-size: 24px;
 }

@@ -1,10 +1,9 @@
-import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-import { useGlobalAuthContext } from "./useGlobalAuthContext";
+import { useGlobalAuthContext } from "../hooks/useGlobalAuthContext";
 
-const useLogin = () => {
+const useLoginForm = () => {
   const navigate = useNavigate();
 
   const { login } = useGlobalAuthContext();
@@ -63,4 +62,4 @@ const useLogin = () => {
   };
 };
 
-export default useLogin;
+export default useLoginForm;

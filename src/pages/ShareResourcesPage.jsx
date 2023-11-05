@@ -1,9 +1,7 @@
-import React from "react";
-import "../style/share.css";
-// import "../style/htmlpage.css";
 import pic1 from "../images/sharing.jpg";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "../style/share.css";
 import FetchAndDisplay from "../components/FetchAndDisplay";
 const ShareResourcesPage = () => {
   const [categoryRes, setCategoryRes] = useState("");
@@ -18,7 +16,17 @@ const ShareResourcesPage = () => {
     "Example:https://www.youtube.com/"
   );
   const baseURL = " https://65154091dc3282a6a3ce170b.mockapi.io/sharedlinks";
-
+  function isValidURL(url) {
+    const pattern = new RegExp(
+      "^(https?:\\/\\/)?" + // protocol
+        "((([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7})|localhost|((\\d{1,3}\\.){3}\\d{1,3}))" + // domain or IP
+        "(:\\d{1,5})?(\\/[-a-zA-Z0-9%_.~+]*)*" + // port and path
+        "(\\?[;&a-zd%_.~+=-]*)?" + // query string
+        "(#[-a-zd_]*)?$",
+      "i"
+    );
+    return pattern.test(url);
+  }
   useEffect(() => {
     if (isAdding) {
       const addRes = {
@@ -30,9 +38,11 @@ const ShareResourcesPage = () => {
       axios
         .post(baseURL, addRes)
         .then((response) => {
+          alert("Resource added successfully!");
           console.log("Resource added successfully:", response.data);
         })
         .catch((error) => {
+          alert("Resource Dosnt added ");
           console.log("Error adding resource:", error);
         });
     }
@@ -51,11 +61,17 @@ const ShareResourcesPage = () => {
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setIsAdding(true);
+
     if (nameRes === "" || urlRes === "") {
       alert("Please fill in all the required fields.");
-      return;
+      setIsAdding(false);
+    } else if (!isValidURL(urlRes)) {
+      alert("Please enter a valid URL.");
+      setIsAdding(false);
+    } else {
+      setIsAdding(true);
     }
+
     setPlaceholderName("Example:Learn JavaScript in 1 Hour");
     setPlaceholderUrl("Example:https://www.youtube.com/");
     console.log(categoryRes, typeRes, nameRes, urlRes);

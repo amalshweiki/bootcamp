@@ -11,8 +11,8 @@ export const youtubeLinks = [
   },
   {
     id: 3,
-    name: "CSS Crash Course For Absolute Beginners",
-    URL: "https://www.youtube.com/embed/yfoY53QXEnI",
+    name: "CSS Tutorial – Full Course for Beginners",
+    URL: "https://www.youtube.com/embed/OXGznpKZ_sA",
   },
 ];
 export const udemyLinks = [

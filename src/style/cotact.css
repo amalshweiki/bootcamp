@@ -1,0 +1,21 @@
+.image-about {
+  margin-top: 20%;
+}
+.contact-icon i {
+  background-color: #6dadbf;
+  color: #f3f7f8;
+  font-size: 25px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  margin: 10px 15px;
+  padding-top: 6px;
+  vertical-align: middle;
+}
+.contact-icon p {
+  color: #6dadbf;
+}
+.p-contact {
+  width: 100%;
+}

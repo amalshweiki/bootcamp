@@ -132,6 +132,10 @@ ul {
   opacity: 0;
   animation: slideInRight 2s ease-in-out forwards;
 }
+.btnANDIfram {
+  position: relative;
+  z-index: 9999;
+}
 
 @keyframes slideInLeft {
   from {
@@ -156,13 +160,13 @@ ul {
 }
 
 .iframe {
-  position: relative;
-  width: 420px;
-  height: 315px;
-  top: 10px;
-  left: -40px;
-  z-index: 5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
 }
+
 .artical-padding {
   padding-top: 25%;
 }
@@ -173,4 +177,11 @@ ul {
 .see-more-text {
   color: #2d4956;
   font-weight: bold;
+}
+
+.close-button {
+  background-color: rgb(193, 17, 170);
+  z-index: 1000000;
+  margin-right: -100%;
+  margin-left: 200;
 }

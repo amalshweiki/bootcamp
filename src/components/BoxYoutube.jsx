@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import "../style/htmlpage.css";
 const BoxYoutube = ({ links }) => {
   const [openVideoIndex, setOpenVideoIndex] = useState(null);
   const openVideo = (index) => {
@@ -26,18 +27,20 @@ const BoxYoutube = ({ links }) => {
                 Open Video
               </button>
               {openVideoIndex === link.id && (
-                <div className="btnANDIfram">
+                <div className="video-container">
                   <button
-                    onClick={() => closeVideo(index)}
-                    className=" button close-button"
+                    onClick={() => closeVideo()}
+                    className="button close-button"
                   >
-                    Close
+                    X
                   </button>
                   <iframe
                     className="iframe"
                     width="420"
                     height="315"
                     src={link.URL}
+                    frameBorder="0"
+                    allowFullScreen
                   ></iframe>
                 </div>
               )}
