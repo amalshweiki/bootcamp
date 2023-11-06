@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Jerusalem Bootcamp App](#jerusalem-bootcamp-app)
+
   - [Table of Contents](#table-of-contents)
   - [Acknowledgments](#acknowledgments)
   - [Overview](#overview)
@@ -15,43 +16,40 @@
     - [CSS Page Screen](#html-page-screen)
     - [Javascript Page Screen](#javascript-page-screen)
     - [React Page Screen](#react-page-screen)
-    - [Shared resources Page Screen](#Shared resources-page-screen)
-    - [Error Toast](#error-toast)
+    - [Shared resources Page Screen](#shared-resources-page-screen)
+    - [Login Page Screen](#login-page-screen)
+    - [About Page Screen](#about-page-screen)
+    - [Contact us Page Screen](#contact-us-page-screen)
   - [Getting Started](#getting-started)
   - [API Integration](#api-integration)
     - [Environment Variable Protection](#environment-variable-protection)
     - [Request Management](#request-management)
   - [Context Management](#context-management)
     - [Authentication Context](#authentication-context)
-    - [Shoe Context](#shoe-context)
   - [Custom Hooks](#custom-hooks)
-    - [`useShoeForm`](#useshoeform)
+    - [`useGlobalAuthContext`](#useglobalauthcontext)
     - [`useLoginForm`](#useloginform)
-    - [`useShoe`](#useshoe)
-  - [User Experience](#user-experience)
-    - [Input Components](#input-components)
-    - [Shoe Card Components](#shoe-card-components)
-  - [Code Reusability](#code-reusability)
-  - [Error Management](#error-management)
-  - [License](#license)
+    - [`usePageContent`](#usePageContent)
 
 ## Acknowledgments
 
-This project is based on the [React Shoe Shop](https://github.com/MariaPinchasi/react-shoe-shop) repository created by Maria Pinchasi. Many of the architectural decisions, UI elements, and functionalities were inspired by her work. Special thanks to Maria for providing a robust foundation upon which this application could be built. Please add a star to her work!
+This project is based on the [React Jerusalem Bootcamp](https://github.com/amalshweiki/bootcamp.git)
 
 ## Overview
 
-This is a Shoe CRUD application that allows users to Create, Read, Update, and Delete shoe entries. The app is integrated with a mock API for demonstration purposes.
+"This is an application that allows users to select the category of sources they desire (HTML, CSS, JavaScript, React) and choose the type of resources (YouTube, Udemy courses, articles, and exercises)."
+
+"HTML," "CSS," "JavaScript," and "React" are programming languages or technologies, so they are better referred to as categories or topics.
+"YouTube," "Udemy courses," "articles," and "exercises" are types of resources.
+"It also enables users to share resources."
 
 ## Live Demo
 
-Visit the [live demo](https://obrm-shoe-app-demo.netlify.app).
+Visit the [live demo](https://elegant-dodol-e3dba2.netlify.app).
 
 ## Features
 
-- CRUD Operations
 - Mock User Authentication
-- Global State Management
 - Custom Hooks
 - Error Notifications
 
@@ -61,7 +59,7 @@ Visit the [live demo](https://obrm-shoe-app-demo.netlify.app).
 - React Router
 - Axios
 - mockApi
-- react-toastify
+  -bootstrap
 
 ## Screenshots
 
@@ -69,7 +67,7 @@ Visit the [live demo](https://obrm-shoe-app-demo.netlify.app).
 
 ### Home Screen
 
-![Home Screen](src/assets/home.png)
+![Home Screen](src/assets/home-page.png)
 
 ---
 
@@ -79,27 +77,81 @@ Visit the [live demo](https://obrm-shoe-app-demo.netlify.app).
 
 ---
 
-### Shoe Screen
+### Contact Screen
 
-![Shoe Screen](src/assets/shoe.png)
-
----
-
-### Edit Shoe Screen
-
-![Manage Shoe Screen](src/assets/manage_shoe.png)
+![Contact Screen](src/assets/contact.png)
 
 ---
 
-### Error Toast
+### About Us Screen
 
-![Error Toast](src/assets/error.png)
+!About Us Screen](src/assets/about.png)
+
+---
+
+### Shared resources Screen
+
+![Shared resources](src/assets/shared.png)
+
+---
+
+### HTML Page Screen
+
+![HTML Page](src/assets/html.png)
+
+---
+
+### HTML Page Video Screen
+
+![HTML Page](src/assets/htmlvideo.png)
+
+---
+
+### HTML Page Article Screen
+
+![HTML Page](src/assets/htmlarticle.png)
+
+---
+
+### CSS Page Video Screen
+
+![CSS Page](src/assets/cssvideo.png)
+
+---
+
+### CSS Page Article Screen
+
+![CSS Page](src/assets/cssarticle.png)
+
+---
+
+### JS Page Video Screen
+
+![JS Page](src/assets/jsvideo.png)
+
+---
+
+### JS Page Article Screen
+
+![JS Page](src/assets/jsarticle.png)
+
+---
+
+### React Page Video Screen
+
+![React Page](src/assets/reactvideo.png)
+
+---
+
+### React Page Article Screen
+
+![React Page](src/assets/reactarticle.png)
 
 ---
 
 ## Getting Started
 
-1. Clone the repository from `https://github.com/obrm/shoes-app-demo`.
+1. Clone the repository from `https://github.com/amalshweiki/bootcamp.git`.
 2. Install dependencies with `npm install`.
 3. Add the `.env` file based on the `.env.sample` file included in the repository.
 4. Run the application using `npm run dev`.
@@ -108,73 +160,22 @@ Visit the [live demo](https://obrm-shoe-app-demo.netlify.app).
 
 All the API calls are available in the `api.js` file in the `api` folder.
 
-### Environment Variable Protection
-
-- The API URL is secured in an `.env` file, which is omitted from the repository for security reasons. Refer to `.env.sample` for the expected variables.
-
-### Request Management
-
-- A generic request function is available for making API calls. This function is utilized in other utility functions designed for specific request types (GET, POST, PUT, DELETE).
-
-```javascript
-const request = async (method, endpoint, data = null) => {
-  const res = await axios({
-    method,
-    url: `${BASE_URL}${endpoint}`,
-    data,
-  });
-  return res.data;
-};
-
-export const getAllShoes = async () => {
-  return await request("get", "/");
-};
-
-// and so on...
-```
-
 ## Context Management
 
 ### Authentication Context
 
 - Manages user authentication and stores user details in local storage for persistence.
 
-### Shoe Context
-
-- This global state is responsible for getting all the shoes and is updated when a shoe is added, edited, or deleted. Ensures immediate reflection of changes across all components.
-
 ## Custom Hooks
 
-### `useShoeForm`
+### `usePageContact`
 
-- Encapsulates the logic for the shoe form. Common logic for adding and editing a shoe is centralized here.
+- Encapsulates the logic for the Catogery page. Common logic for all categories pages(HTML,CSS,JS,React).
 
 ### `useLoginForm`
 
 - Manages the logic for the login form.
 
-### `useShoe`
+### `useGlobalAuthContext`
 
-- Additional custom hook is employed for separating logic and view in the `Shoe` component.
-
-## User Experience
-
-### Input Components
-
-- JSX repetition for input elements is avoided by creating reusable Input components.
-
-### Shoe Card Components
-
-- A `ShoeCard` component is used to iterate over the array of shoes and display them on the Home screen.
-
-## Code Reusability
-
-- A single `ManageShoe` component is used for both adding and editing shoes, depending on the presence of `shoeId` in the URL, avoiding the need to use two separate components.
-
-## Error Management
-
-- User-friendly error notifications are shown using the [`react-toastify`](https://www.npmjs.com/package/react-toastify) package. It's centralized in the App component to handle errors application-wide.
-
-## License
-
-- This project is licensed under the MIT License.
+- used to access the AuthContext.

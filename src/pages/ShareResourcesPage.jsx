@@ -101,7 +101,7 @@ const ShareResourcesPage = () => {
       value: "youtube",
     },
     {
-      label: "Vedio Udemy Resources",
+      label: "Video Udemy Resources",
       value: "udemy",
     },
     {
