@@ -60,11 +60,11 @@ const Header = () => {
                 <NavDropdown.Item href="htmlpage">
                   HTML Resources
                 </NavDropdown.Item>
-                <NavDropdown.Item href="csspage">
+                <NavDropdown.Item href="/csspage">
                   CSS Resources
                 </NavDropdown.Item>
-                <NavDropdown.Item href="jspage">JS Resources</NavDropdown.Item>
-                <NavDropdown.Item href="reactpage">
+                <NavDropdown.Item href="/jspage">JS Resources</NavDropdown.Item>
+                <NavDropdown.Item href="/reactpage">
                   React Resources
                 </NavDropdown.Item>
               </NavDropdown>
