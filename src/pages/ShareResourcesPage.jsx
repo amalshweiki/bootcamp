@@ -40,13 +40,15 @@ const ShareResourcesPage = () => {
         .then((response) => {
           alert("Resource added successfully!");
           console.log("Resource added successfully:", response.data);
+          setIsAdding(false);
         })
         .catch((error) => {
           alert("Resource Dosnt added ");
           console.log("Error adding resource:", error);
         });
     }
-  }, [isAdding]);
+    return () => setIsAdding(false);
+  }, [isAdding, baseURL, categoryRes, typeRes, nameRes, urlRes]);
   const handleCategoryChange = (e) => {
     setCategoryRes(e.target.value);
   };
@@ -64,13 +66,13 @@ const ShareResourcesPage = () => {
 
     if (nameRes === "" || urlRes === "") {
       alert("Please fill in all the required fields.");
-      setIsAdding(false);
-    } else if (!isValidURL(urlRes)) {
-      alert("Please enter a valid URL.");
-      setIsAdding(false);
-    } else {
-      setIsAdding(true);
+      return;
     }
+    if (!isValidURL(urlRes)) {
+      alert("Please enter a valid URL.");
+      return;
+    }
+    setIsAdding(true);
 
     setPlaceholderName("Example:Learn JavaScript in 1 Hour");
     setPlaceholderUrl("Example:https://www.youtube.com/");
