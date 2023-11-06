@@ -54,17 +54,19 @@ const Header = () => {
             <li className="nav-item nav-dropdown ">
               <NavDropdown
                 className="custom-dropdown"
-                title="All Catageries"
+                title="All Categories"
                 id="basic-nav-dropdown"
               >
-                <NavDropdown.Item href="htmlpage">
+                <NavDropdown.Item as={Link} to="/htmlpage">
                   HTML Resources
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/csspage">
+                <NavDropdown.Item as={Link} to="/csspage">
                   CSS Resources
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/jspage">JS Resources</NavDropdown.Item>
-                <NavDropdown.Item href="/reactpage">
+                <NavDropdown.Item as={Link} to="/jspage">
+                  JS Resources
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/reactpage">
                   React Resources
                 </NavDropdown.Item>
               </NavDropdown>
