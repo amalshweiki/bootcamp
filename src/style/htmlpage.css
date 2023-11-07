@@ -185,3 +185,15 @@ ul {
   margin-right: -100%;
   margin-left: 200;
 }
+@media (max-width: 1000px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "box1"
+      "box2"
+      "box3"
+      "box4";
+    gap: 20px;
+  }
+}

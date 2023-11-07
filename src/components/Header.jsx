@@ -31,13 +31,9 @@ const Header = () => {
                 Home
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <Link className="nav-link mx-3" to="/products">
-                Products
-              </Link>
-            </li> */}
+
             <li className="nav-item">
-              <Link className="nav-link mx-3 text-white" to="/about">
+              <Link className="nav-link mx-3 text-white " to="/about">
                 Abous Us
               </Link>
             </li>
@@ -78,12 +74,12 @@ const Header = () => {
               {user ? (
                 <>
                   <p className="user-name">{`hello ${user.name}`}</p>
-                  <Link to="/" className="btn login-btn" onClick={logout}>
+                  <Link to="/" className="login-btn" onClick={logout}>
                     Log Out
                   </Link>
                 </>
               ) : (
-                <Link to="/logIn" className="btn login-btn">
+                <Link to="/logIn" className=" login-btn">
                   Log In
                 </Link>
               )}

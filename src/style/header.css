@@ -29,4 +29,12 @@
 }
 .log-in-and-out p {
   margin-top: 15px;
+  font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
+    "Helvetica Neue", sans-serif;
+}
+.login-btn {
+  color: white;
+}
+.login-btn:hover {
+  color: #122125;
 }

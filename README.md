@@ -49,7 +49,7 @@ Visit the [live demo](https://elegant-dodol-e3dba2.netlify.app).
 
 ## Features
 
-- Mock User Authentication
+- User Authentication
 - Custom Hooks
 - Error Notifications
 
@@ -59,7 +59,7 @@ Visit the [live demo](https://elegant-dodol-e3dba2.netlify.app).
 - React Router
 - Axios
 - mockApi
-  -bootstrap
+-bootstrap
 
 ## Screenshots
 

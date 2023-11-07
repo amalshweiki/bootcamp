@@ -1,117 +1,31 @@
 import pic1 from "../images/sharing.jpg";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import "../style/share.css";
+import { optionCategory, optionCType } from "../Model/optiondata";
 import FetchAndDisplay from "../components/FetchAndDisplay";
+import useResourceForm from "../hooks/useResourceForm";
+
+import "../style/share.css";
+import AddSharedRes from "../components/AddSharedRes";
 const ShareResourcesPage = () => {
-  const [categoryRes, setCategoryRes] = useState("");
-  const [typeRes, setTypeRes] = useState("");
-  const [nameRes, setNameRes] = useState("");
-  const [urlRes, setUrlRes] = useState("");
-  const [isAdding, setIsAdding] = useState(false);
-  const [placeholderName, setPlaceholderName] = useState(
-    "Example:Learn JavaScript in 1 Hour"
-  );
-  const [placeholderUrl, setPlaceholderUrl] = useState(
-    "Example:https://www.youtube.com/"
-  );
-  const baseURL = " https://65154091dc3282a6a3ce170b.mockapi.io/sharedlinks";
-  function isValidURL(url) {
-    const pattern = new RegExp(
-      "^(https?:\\/\\/)?" + // protocol
-        "((([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7})|localhost|((\\d{1,3}\\.){3}\\d{1,3}))" + // domain or IP
-        "(:\\d{1,5})?(\\/[-a-zA-Z0-9%_.~+]*)*" + // port and path
-        "(\\?[;&a-zd%_.~+=-]*)?" + // query string
-        "(#[-a-zd_]*)?$",
-      "i"
-    );
-    return pattern.test(url);
-  }
-  useEffect(() => {
-    if (isAdding) {
-      const addRes = {
-        category: categoryRes,
-        type: typeRes,
-        name: nameRes,
-        url: urlRes,
-      };
-      axios
-        .post(baseURL, addRes)
-        .then((response) => {
-          alert("Resource added successfully!");
-          console.log("Resource added successfully:", response.data);
-          setIsAdding(false);
-        })
-        .catch((error) => {
-          alert("Resource Dosnt added ");
-          console.log("Error adding resource:", error);
-        });
-    }
-    return () => setIsAdding(false);
-  }, [isAdding, baseURL, categoryRes, typeRes, nameRes, urlRes]);
-  const handleCategoryChange = (e) => {
-    setCategoryRes(e.target.value);
-  };
-  const handleTypeChange = (e) => {
-    setTypeRes(e.target.value);
-  };
-  const handleNameChange = (e) => {
-    setNameRes(e.target.value);
-  };
-  const handleUrlChange = (e) => {
-    setUrlRes(e.target.value);
-  };
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-
-    if (nameRes === "" || urlRes === "") {
-      alert("Please fill in all the required fields.");
-      return;
-    }
-    if (!isValidURL(urlRes)) {
-      alert("Please enter a valid URL.");
-      return;
-    }
-    setIsAdding(true);
-
-    setPlaceholderName("Example:Learn JavaScript in 1 Hour");
-    setPlaceholderUrl("Example:https://www.youtube.com/");
-    console.log(categoryRes, typeRes, nameRes, urlRes);
-  };
-
-  const optionCategory = [
-    {
-      label: " HTML Resources",
-      value: "HTML",
-    },
-    {
-      label: " CSS Resources",
-      value: "CSS",
-    },
-    {
-      label: " JS Resources",
-      value: "JS",
-    },
-    {
-      label: " React Resources",
-      value: "React",
-    },
+  const {
+    categoryRes,
+    typeRes,
+    nameRes,
+    urlRes,
+    isAdding,
+    placeholderName,
+    placeholderUrl,
+    handleCategoryChange,
+    handleTypeChange,
+    handleNameChange,
+    handleUrlChange,
+    handleFormSubmit,
+  } = useResourceForm();
+  const resourceData = [
+    { category: "HTML", title: "HTML Shared Resources" },
+    { category: "CSS", title: "CSS Shared Resources" },
+    { category: "JS", title: "JavaScript Shared Resources" },
+    { category: "React", title: "React Shared Resources" },
   ];
-  const optionCType = [
-    {
-      label: "Video Youtube Resources",
-      value: "youtube",
-    },
-    {
-      label: "Video Udemy Resources",
-      value: "udemy",
-    },
-    {
-      label: "Articales Resources",
-      value: "article",
-    },
-  ];
-
   return (
     <div>
       <div className="container fade-in">
@@ -176,7 +90,7 @@ const ShareResourcesPage = () => {
                 </div>
                 <div>
                   <label htmlFor="textInput1">
-                    The Name of vedio , cources or articales
+                    The Name of Video , cources or articales
                   </label>{" "}
                   <br />
                   <input
@@ -206,8 +120,20 @@ const ShareResourcesPage = () => {
           </div>
         </div>
       </div>
-
       <div className="shared-resources">
+        {resourceData.map((data) => (
+          <div
+            key={data.category}
+            className={`${data.category.toLowerCase()}-shared`}
+          >
+            <div className="box1-shared">
+              <FetchAndDisplay category={data.category} title={data.title} />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* <div className="shared-resources">
         <div className="html-shared">
           <div>
             <div className="box1-shared">
@@ -235,7 +161,7 @@ const ShareResourcesPage = () => {
             <FetchAndDisplay category="React" title="React Shared Resources" />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

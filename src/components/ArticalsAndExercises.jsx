@@ -6,14 +6,6 @@ const ArticalsAndExercises = ({ image1, image2, links, exercises }) => {
   const [openVideoIndex, setOpenVideoIndex] = useState(null);
   const [articlsLlinksEXC, SetArticlsLlinksEXC] = useState(exercises);
 
-  const openVideo = (index) => {
-    setOpenVideoIndex(index);
-  };
-
-  const closeVideo = () => {
-    setOpenVideoIndex(null);
-  };
-
   return (
     <div className="grid-container">
       <div className="box1 fade-in-left">

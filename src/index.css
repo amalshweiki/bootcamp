@@ -103,3 +103,40 @@
   /* padding: 10px; */
   font-size: 24px;
 }
+@media (max-width: 1000px) {
+  .button {
+    top: 170px;
+    left: auto;
+    width: 100%; /* Make the button full width */
+  }
+  .btn-seeMore {
+    top: auto;
+    left: auto;
+    margin: 0;
+    width: 100%; /* Make the button full width */
+  }
+}
+
+.btn-share {
+  margin-top: 4%;
+  background-color: white;
+  color: #6dadbf;
+  margin-left: 60%;
+}
+
+.close-button {
+  background-color: transparent;
+  z-index: 1000000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  border: none;
+  margin-top: 15%;
+  margin-left: 68%;
+  width: 5px;
+  height: 5px;
+  color: #f7f9f9;
+  cursor: pointer;
+  font-size: 24px;
+}

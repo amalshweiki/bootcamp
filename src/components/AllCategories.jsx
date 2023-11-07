@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import CategoryItem from "./CategoryItem";
-import "../style/allCategories.css";
 import CATEGORIESDATA from "../Model/categoriesdata";
+import "../style/allCategories.css";
 const AllCategories = () => {
   const [categoriesdata, setCategoriesdata] = useState(CATEGORIESDATA);
 
